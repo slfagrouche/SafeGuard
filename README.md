@@ -1,9 +1,21 @@
-```markdown
-# SafeGuard: Crisis Monitoring & Alert Platform
-![SafeGuard Banner](path/to/banner.png)
+# SafeGuard: Crisis Monitoring & Alert Platform (In Development)
+
+> ⚠️ **Development Status**: This project is currently in active development and not ready for production use. Features and documentation are being actively developed.
+
+![Development Status](https://img.shields.io/badge/Status-In_Development-yellow)
+![Version](https://img.shields.io/badge/Version-Beta_0.1-blue)
 
 ## Overview
 SafeGuard is a comprehensive crisis monitoring platform designed to track and report incidents in conflict zones and humanitarian crisis areas. The platform combines real-time geospatial monitoring with AI assistance to provide critical safety information and resources.
+
+## Current Development State
+- ✅ Basic incident mapping
+- ✅ Initial AWS integration
+- 🚧 AI features (in progress)
+- 🚧 Alert system (in progress)
+- ⏳ Database migration (planned)
+- ⏳ Enhanced security features (planned)
+
 
 ## Key Features
 
