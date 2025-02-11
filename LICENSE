@@ -1,0 +1,32 @@
+Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   Copyright 2024 SafeGuard - Real-Time Crisis Monitoring Platform
+   
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+   NOTICE: This project includes the following third-party components:
+   - Leaflet.js (BSD-2-Clause)
+   - Django (BSD-3-Clause)
+   - Other dependencies as listed in requirements.txt and package.json
+
+   This software is designed for humanitarian purposes. While it is open for all uses, 
+   we encourage users to consider the ethical implications of their implementations.
+
+   For any questions about usage or licensing:
+   Contact: Said Lfagrouche
+   Email: SaidLfagrouche@gmail.com
+   GitHub: https://github.com/slfagrouche/SafeGuard
