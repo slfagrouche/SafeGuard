@@ -239,11 +239,6 @@ GET /api/incidents/?region=sudan
 4. Push to branch (`git push origin feature/AmazingFeature`)
 5. Open Pull Request
 
-## Support & Contact
-- Documentation: [docs.safeguard.com](https://docs.safeguard.com)
-- Issues: GitHub Issues
-- Email: support@safeguard.com
-
 ## License
 This project is licensed under the MIT License - see [LICENSE.md](LICENSE)
 
