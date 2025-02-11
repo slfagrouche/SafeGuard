@@ -245,5 +245,5 @@ GET /api/incidents/?region=sudan
 - Email: support@safeguard.com
 
 ## License
-This project is licensed under the MIT License - see [LICENSE.md](LICENSE.md)
+This project is licensed under the MIT License - see [LICENSE.md](LICENSE)
 
