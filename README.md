@@ -98,9 +98,8 @@ MODELS = {
 ```yaml
 infrastructure:
   - Pulumi for IaC
-  - GitHub Actions for CI/CD
-  - Docker containerization
-  - Kubernetes orchestration (planned)
+  - Jenkins for CI/CD
+  - Docker containerization (planned)
 ```
 
 ## Development Setup
