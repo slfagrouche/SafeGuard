@@ -1,0 +1,53 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls static admin_list %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static "admin/css/changelists.css" %}">
+{% endblock %}
+
+{% block content %}
+<div id="content-main">
+  <div class="module filtered">
+    <div class="changelist-form-container">
+      <table id="result_list">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">Location</th>
+            <th scope="col">Created At</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for subscriber in subscribers %}
+            <tr class="{% cycle 'row1' 'row2' %}">
+              <td>{{ subscriber.name }}</td>
+              <td>{{ subscriber.email }}</td>
+              <td>{{ subscriber.address }}</td>
+              <td>
+                {% if subscriber.latitude and subscriber.longitude %}
+                  {{ subscriber.latitude }}, {{ subscriber.longitude }}
+                {% else %}
+                  No location
+                {% endif %}
+              </td>
+              <td>{{ subscriber.created_at|date:"Y-m-d H:i:s" }}</td>
+              <td>
+                <form method="post" action="{% url 'admin:delete_subscriber' subscriber.email %}" onsubmit="return confirm('Are you sure you want to delete this subscriber?');" style="display: inline;">
+                  {% csrf_token %}
+                  <button type="submit" class="deletelink" style="background: none; border: none; color: #ba2121; cursor: pointer;">
+                    Delete
+                  </button>
+                </form>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

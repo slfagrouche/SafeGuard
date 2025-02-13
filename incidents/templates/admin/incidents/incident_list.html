@@ -1,0 +1,70 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls static admin_list %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static "admin/css/changelists.css" %}">
+{% endblock %}
+
+{% block content %}
+<div id="content-main">
+  <div class="module filtered">
+    <div class="changelist-form-container">
+      <table id="result_list">
+        <thead>
+          <tr>
+            <th scope="col">Date/Time</th>
+            <th scope="col">Description</th>
+            <th scope="col">Location</th>
+            <th scope="col">Source</th>
+            <th scope="col">Image</th>
+            <th scope="col">Verified</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for incident in incidents %}
+            <tr class="{% cycle 'row1' 'row2' %}">
+              <td>{{ incident.datetime|date:"Y-m-d H:i:s" }}</td>
+              <td>{{ incident.description }}</td>
+              <td>
+                {% if incident.latitude and incident.longitude %}
+                  {{ incident.latitude }}, {{ incident.longitude }}
+                {% else %}
+                  No location
+                {% endif %}
+              </td>
+              <td>
+                {% if incident.source %}
+                  <a href="{{ incident.source }}" target="_blank">Link</a>
+                {% endif %}
+              </td>
+              <td>
+                {% if incident.image_key %}
+                  <img src="/incident-image/{{ incident.id }}/" width="100" height="100" style="object-fit: cover;">
+                {% endif %}
+              </td>
+              <td>
+                <form method="post" action="{% url 'admin:toggle_verify' incident.id %}">
+                  {% csrf_token %}
+                  <button type="submit" class="button" style="background: {% if incident.verified %}#28a745{% else %}#dc3545{% endif %}; color: white; border: none; padding: 5px 10px; border-radius: 4px;">
+                    {% if incident.verified %}Verified{% else %}Unverified{% endif %}
+                  </button>
+                </form>
+              </td>
+              <td>
+                <form method="post" action="{% url 'admin:delete_incident' incident.id %}" onsubmit="return confirm('Are you sure you want to delete this incident?');" style="display: inline;">
+                  {% csrf_token %}
+                  <button type="submit" class="deletelink" style="background: none; border: none; color: #ba2121; cursor: pointer;">
+                    Delete
+                  </button>
+                </form>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
