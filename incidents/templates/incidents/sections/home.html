@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeGuard - Incident Monitoring</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            min-height: 100vh;
+            background: #000;
+        }
+
+        /* Custom animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Custom styles */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .backdrop-blur-2xl {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+
+        /* Additional hover effects */
+        .hover-glow:hover {
+            box-shadow: 0 0 30px rgba(147, 51, 234, 0.3);
+        }
+
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Responsive font sizes */
+        @media (max-width: 768px) {
+            .text-7xl {
+                font-size: 4rem;
+            }
+            .text-2xl {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.95), rgba(88, 28, 135, 0.8));
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 90%;
+            width: 500px;
+            animation: slideUp 0.3s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <section id="home" class="relative min-h-screen bg-gradient-to-br from-purple-900/80 via-black to-black tab-content active overflow-hidden">
+        <!-- Background Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-tr from-purple-500/5 via-transparent to-purple-900/10"></div>
+        
+        <!-- Main Content -->
+        <div class="relative z-10 min-h-screen flex flex-col items-center justify-center py-20">
+            <div class="container mx-auto px-4">
+                <!-- Hero Content -->
+                <div class="max-w-2xl mx-auto text-center mb-16">
+                    <h1 class="text-7xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600 mb-8 tracking-tight">
+                        SafeGuard
+                    </h1>
+                    <p class="text-2xl md:text-3xl text-gray-300 mb-8 leading-relaxed">
+                        Your real-time incident monitoring and reporting platform
+                    </p>
+                    <div class="flex justify-center">
+                        <button onclick="openReportModal()" class="cta-button">
+                            <i class="fas fa-exclamation-circle mr-2"></i>Report Incident
+                        </button>
+                    </div>
+                </div>
+
+                <!-- App Introduction -->
+                <div class="intro-section">
+                    <div class="intro-content">
+                        <h2>What is SafeGuard?</h2>
+                        <p>
+                            SafeGuard is your community's eyes and ears, providing a real-time platform for incident reporting and monitoring. Whether it's a traffic accident, suspicious activity, or emergency situations, SafeGuard empowers citizens to stay informed and take action.
+                        </p>
+                        <div class="intro-stats">
+                            <div class="stat-item">
+                                <span class="counter" data-target="5000">0</span>
+                                <span class="stat-label">Active Users</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="counter" data-target="1200">0</span>
+                                <span class="stat-label">Reports Submitted</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="counter" data-target="98">0</span>
+                                <span class="stat-label">Response Rate</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mission Statement -->
+                <div class="mission-section">
+                    <h2>Our Mission</h2>
+                    <p>
+                        SafeGuard is a non-profit organization dedicated to empowering communities through real-time incident monitoring and response coordination. Our mission is to create safer neighborhoods by providing accessible tools for community awareness and emergency preparedness.
+                    </p>
+                    <p>
+                        Founded in 2024, we believe that community safety starts with informed citizens. Through our innovative app and platform, we're bridging the gap between incident reporting and community response.
+                    </p>
+                </div>
+
+                <!-- Features Section -->
+                <div class="features-grid">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-icon">
+                            <i class="fas fa-map-marked-alt text-4xl mb-4"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Real-time Mapping</h3>
+                        <p class="text-gray-300">
+                            Interactive incident maps with live updates and location-based alerts to keep you informed of your surroundings.
+                        </p>
+                    </div>
+
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-icon">
+                            <i class="fas fa-bell text-4xl mb-4"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Instant Alerts</h3>
+                        <p class="text-gray-300">
+                            Receive immediate notifications about incidents in your area through our advanced alert system.
+                        </p>
+                    </div>
+
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-icon">
+                            <i class="fas fa-users text-4xl mb-4"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Community Network</h3>
+                        <p class="text-gray-300">
+                            Connect with your local community to share updates and coordinate responses to incidents.
+                        </p>
+                    </div>
+
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt text-4xl mb-4"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Verified Reports</h3>
+                        <p class="text-gray-300">
+                            Trust in our verified reporting system that ensures accurate and reliable incident information.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Report Modal -->
+    {% include 'incidents/includes/report_modal.html' %}
+
+    <!-- Include Incident Details Modal -->
+    {% include 'incidents/includes/incident_details_modal.html' %}
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Counter animation
+        function animateCounter(element) {
+            const target = parseInt(element.dataset.target);
+            const duration = 2000; // 2 seconds
+            const step = target / (duration / 16); // 60fps
+            let current = 0;
+
+            const counter = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(counter);
+                } else {
+                    element.textContent = Math.floor(current) + '+';
+                }
+            }, 16);
+        }
+
+        // Start counter animations when elements are in view
+        document.addEventListener('DOMContentLoaded', () => {
+            const counterElements = document.querySelectorAll('.counter');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+
+            counterElements.forEach(element => observer.observe(element));
+        });
+
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tab).classList.add('active');
+        }
+
+        function openReportModal() {
+            document.getElementById('reportModal').style.display = 'block';
+        }
+
+        function closeReportModal() {
+            document.getElementById('reportModal').style.display = 'none';
+        }
+
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
