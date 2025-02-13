@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SafeGuard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="{% static 'incidents/images/favicon.png' %}">
+
+  <!-- Leaflet CSS & JS (retained from old code for map functionality) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Base Styles -->
+  <link rel="stylesheet" href="{% static 'incidents/css/shared.css' %}" />
+  
+  <!-- Page-specific Styles -->
+  <link rel="stylesheet" href="{% static 'incidents/css/home.css' %}" />
+  <link rel="stylesheet" href="{% static 'incidents/css/incident-map.css' %}" />
+  <link rel="stylesheet" href="{% static 'incidents/css/ai-hub.css' %}" />
+  <link rel="stylesheet" href="{% static 'incidents/css/alerts.css' %}" />
+  <link rel="stylesheet" href="{% static 'incidents/css/resources.css' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  {% include 'incidents/includes/header.html' %}
+
+  <!-- Main Content -->
+  <main class="pt-16">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include 'incidents/includes/footer.html' %}
+  
+  <!-- Modals -->
+  {% include 'incidents/includes/report_modal.html' %}
+  {% include 'incidents/includes/incident_details_modal.html' %}
+
+  <!-- Django Token & Main JS -->
+  {% csrf_token %}
+  <script src="{% static 'incidents/js/main.js' %}"></script>
+</body>
+</html>
