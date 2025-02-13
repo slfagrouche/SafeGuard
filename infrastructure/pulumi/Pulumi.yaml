@@ -1,0 +1,16 @@
+name: flow-alerts
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: Infrastructure for Flow Alerts application
+config:
+  aws:region:
+    type: string
+    description: The AWS region to deploy into
+  flow-alerts:env:
+    type: string
+    description: Environment (dev/prod)
+  flow-alerts:project_name:
+    type: string
+    description: Project name for resource naming
