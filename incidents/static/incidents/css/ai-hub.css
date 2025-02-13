@@ -1,0 +1,128 @@
+/* ----------------- */
+/*   AI Help Hub     */
+/* ----------------- */
+.ai-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.ai-card {
+  background: rgba(26, 26, 46, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  text-align: center;
+  transition: all var(--transition-speed) ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(138, 43, 226, 0.1) 0%,
+    rgba(138, 43, 226, 0) 100%
+  );
+  z-index: 0;
+}
+
+.ai-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 32px var(--glass-shadow);
+  border-color: var(--accent-color);
+}
+
+.ai-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: rgba(138, 43, 226, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--accent-color);
+  position: relative;
+  z-index: 1;
+}
+
+.ai-icon i {
+  font-size: 2rem;
+  color: var(--accent-color);
+}
+
+.ai-card h3 {
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+}
+
+.ai-card p {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.ai-action-btn {
+  background: rgba(138, 43, 226, 0.8);
+  color: var(--text-color);
+  border: 1px solid var(--glass-border);
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  transition: all var(--transition-speed) ease;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(var(--blur-strength));
+  -webkit-backdrop-filter: blur(var(--blur-strength));
+}
+
+.ai-action-btn:hover {
+  background: var(--hover-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ai-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0.5rem;
+  }
+
+  .ai-card {
+    padding: 1.5rem;
+  }
+
+  .ai-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .ai-icon i {
+    font-size: 1.5rem;
+  }
+
+  .ai-card h3 {
+    font-size: 1.3rem;
+  }
+}
