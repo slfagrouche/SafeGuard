@@ -1,0 +1,117 @@
+/* ----------------- */
+/*   Map Section     */
+/* ----------------- */
+#section-container {
+  position: relative;
+  z-index: 1;
+}
+
+#map {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  z-index: 0;
+}
+
+/* Hero Section Styles */
+#hero-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.7); /* Darker semi-transparent background */
+}
+
+#hero-section .max-w-7xl {
+  padding-top: 4rem; /* Adjust based on navbar height */
+  padding-bottom: 1rem;
+}
+
+#hero-section h1 {
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+#hero-section p {
+  margin: 0;
+  padding-bottom: 1rem;
+}
+
+#leaflet-map {
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+/* Rest of your CSS remains the same */
+.custom-marker {
+  border-radius: 50%;
+  border: 2px solid var(--accent-color);
+  box-shadow: 0 0 15px rgba(109, 40, 217, 0.5);
+  min-width: 20px !important;
+  min-height: 20px !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin-left: -10px !important;
+  margin-top: -10px !important;
+  transform-origin: center;
+  transform: scale(1);
+  transition: transform 0.2s ease-out;
+}
+
+/* Make markers more visible when zoomed out */
+.leaflet-zoom-animated .custom-marker {
+  transform: scale(1.5);
+}
+
+.leaflet-zoom-4 .custom-marker,
+.leaflet-zoom-5 .custom-marker,
+.leaflet-zoom-6 .custom-marker {
+  transform: scale(2);
+}
+
+.leaflet-zoom-1 .custom-marker,
+.leaflet-zoom-2 .custom-marker,
+.leaflet-zoom-3 .custom-marker {
+  transform: scale(2.5);
+}
+
+/* Map Controls */
+.leaflet-control-zoom {
+  border: none !important;
+  margin: 15px !important;
+}
+
+.leaflet-control-zoom a {
+  background: var(--glass-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  color: var(--text-primary) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Map Responsiveness */
+@media (max-width: 768px) {
+  #hero-section .max-w-7xl {
+    padding-top: 3rem;
+  }
+  
+  .map-sidebar {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+  }
+
+  #map {
+    width: 95%;
+    height: 400px; /* Slightly smaller on mobile */
+  }
+}
