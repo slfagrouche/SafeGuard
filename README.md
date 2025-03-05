@@ -1,7 +1,9 @@
 # SafeGuard: Crisis Monitoring & Alert Platform
 
-![SafeGuard Banner](safeguard_crisis_monitoring_logo.jpeg)  
+> ⚠️ **Development Status**: SafeGuard is in **Beta**—most core features are complete, with ongoing work to address minor bugs and enhancements. It’s functional for testing but not yet fully production-ready.  
+> ![Development Status](https://img.shields.io/badge/Status-Beta-blue)
 
+![SafeGuard Banner](safeguard_crisis_monitoring_logo.jpeg)  
 ## Project Overview
 
 **SafeGuard** is a sophisticated crisis monitoring platform designed to deliver real-time incident tracking, AI-driven assistance, and targeted alerts in conflict zones and humanitarian crisis areas. Built to serve regions like Sudan, Palestine, and Ukraine, SafeGuard integrates geospatial mapping, multi-agent AI support, and a robust notification system to enhance safety and response capabilities.
@@ -323,7 +325,7 @@ Stored in `.env`:
 
 - **Docs:** [https://saidlfagrouche.com/safeguard-docs](https://saidlfagrouche.com/) (placeholder)  
 - **Issues:** [GitHub Issues](https://github.com/saidlfagrouche/SafeGuard/issues)  
-- **Site:** Contact via [https://saidlfagrouche.com/](https://saidlfagrouche.com/)  
+- **My Site:** Contact via [https://saidlfagrouche.com/](https://saidlfagrouche.com/)  
 - **LinkedIn:**  
   - Personal: [Said Lfagrouche](https://www.linkedin.com/in/saidlfagrouche/)  
   - Company: [SafeGuard Crisis Monitoring](https://www.linkedin.com/company/safeguard-crisis-monitoring/)
