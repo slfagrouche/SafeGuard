@@ -1,0 +1,10 @@
+pypdf
+ratelimit
+langchain 
+langchain-core 
+langchain-community
+langchain-openai
+langgraph
+langsmith
+faiss-cpu 
+python-dotenv

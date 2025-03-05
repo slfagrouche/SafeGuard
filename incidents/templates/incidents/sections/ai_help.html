@@ -5,87 +5,123 @@
       Get instant assistance from our specialized AI agents. Choose the type of help you need below.
     </p>
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-    <!-- General Help Agent Card -->
+  <div class="max-w-2xl mx-auto">
+    <!-- Single Multimodal Agent Card -->
     <div 
-      onclick="openChat('general')"
-      class="bg-black/50 backdrop-blur-sm border border-purple-500/20 rounded-xl p-6 hover:bg-black/60 transition-all cursor-pointer group"
+      onclick="openChat('multimodal')"
+      class="agent-card group"
     >
-      <div class="w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-        <i class="fa-solid fa-robot text-2xl text-purple-400"></i>
+      <div class="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+        <i class="fa-solid fa-brain text-2xl text-blue-400"></i>
       </div>
-      <h3 class="text-xl font-semibold text-white mb-3">General Help Agent</h3>
-      <p class="text-gray-400">Get instant answers to your questions with our RAG-based AI assistant.</p>
-      <div class="mt-6 flex items-center text-purple-400 font-medium">
-        Start Chat <i class="fa-solid fa-arrow-right ml-2"></i>
-      </div>
-    </div>
-
-    <!-- Medical Assistant Card -->
-    <div 
-      onclick="openChat('medical')"
-      class="bg-black/50 backdrop-blur-sm border border-red-500/20 rounded-xl p-6 hover:bg-black/60 transition-all cursor-pointer group"
-    >
-      <div class="w-16 h-16 bg-red-500/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-        <i class="fa-solid fa-heart text-2xl text-red-400"></i>
-      </div>
-      <h3 class="text-xl font-semibold text-white mb-3">Medical Assistant</h3>
-      <p class="text-gray-400">Get medical advice, locate hospitals, and access emergency assistance.</p>
-      <div class="mt-6 flex items-center text-red-400 font-medium">
-        Start Chat <i class="fa-solid fa-arrow-right ml-2"></i>
-      </div>
-    </div>
-
-    <!-- Recommendation Agent Card -->
-    <div 
-      onclick="openChat('recommendations')"
-      class="bg-black/50 backdrop-blur-sm border border-yellow-500/20 rounded-xl p-6 hover:bg-black/60 transition-all cursor-pointer group"
-    >
-      <div class="w-16 h-16 bg-yellow-500/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-        <i class="fa-solid fa-lightbulb text-2xl text-yellow-400"></i>
-      </div>
-      <h3 class="text-xl font-semibold text-white mb-3">Recommendation Agent</h3>
-      <p class="text-gray-400">Receive personalized recommendations for resources, shelters, and more.</p>
-      <div class="mt-6 flex items-center text-yellow-400 font-medium">
-        Start Chat <i class="fa-solid fa-arrow-right ml-2"></i>
+      <h3 class="text-xl font-semibold text-white mb-3">AI Assistant</h3>
+      <p class="text-gray-400">Your intelligent assistant for emergency guidance, medical advice, and personalized recommendations - all in one place.</p>
+      <div class="mt-6 flex items-center text-blue-400 font-medium">
+        Start Chat <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Chat Interface Modal -->
-<div class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50" id="chatModal" style="display: none;">
-  <div class="bg-black/80 rounded-xl p-6 max-w-2xl w-full mx-4 border border-white/10 h-[80vh] flex flex-col">
-    <div class="flex justify-between items-center mb-6">
-      <h2 class="text-xl font-bold text-white" id="chatTitle">AI Assistant</h2>
+<div class="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50" id="chatModal" style="display: none;">
+  <div class="modal-content max-w-6xl w-[95%] mx-4 h-[90vh] flex flex-col p-8">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-6 pb-4 border-b border-blue-500/20">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-blue-500/10 rounded-full flex items-center justify-center">
+          <i class="fa-solid fa-brain text-blue-400 text-xl"></i>
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-white" id="chatTitle">SafeGuard AI Assistant</h2>
+          <p class="text-sm text-blue-400">Emergency Response & Safety Guide</p>
+        </div>
+      </div>
       <button 
         onclick="closeChat()"
-        class="p-2 hover:bg-white/5 rounded-lg transition-colors"
+        class="p-2 hover:bg-blue-500/10 rounded-lg transition-colors group"
       >
-        <i class="fa-solid fa-xmark text-gray-400"></i>
+        <i class="fa-solid fa-xmark text-gray-400 group-hover:text-blue-400"></i>
       </button>
     </div>
 
-    <div class="flex-1 overflow-y-auto mb-4 space-y-4" id="chatMessages">
-      <!-- Messages will be dynamically added here -->
+    <!-- Chat Messages Area -->
+    <div class="flex-1 overflow-y-auto mb-4 space-y-4 pr-4 custom-scrollbar" id="chatMessages">
+      <!-- Welcome Message -->
+      <div class="chat-message ai-message animate-fade-in">
+        <p>Hello! I'm your AI assistant. I can help you with emergency guidance, medical advice, and safety recommendations. How can I assist you today?</p>
+        <div class="message-time">Just now</div>
+      </div>
     </div>
 
-    <div class="border-t border-white/10 pt-4">
+    <!-- Input Area -->
+    <div class="border-t border-blue-500/20 pt-4">
       <form id="chatForm" onsubmit="sendMessage(event)" class="flex gap-4">
-        <input
-          type="text"
-          id="messageInput"
-          placeholder="Type your message..."
-          class="flex-1 bg-gray-800/80 text-white rounded-lg px-4 py-2 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
-        />
+        <div class="chat-input-container flex-1">
+          <input
+            type="text"
+            id="messageInput"
+            placeholder="Ask about emergency procedures, medical guidance, or safety recommendations..."
+            class="chat-input"
+          />
+          <div class="typing-animation absolute right-3 top-1/2 -translate-y-1/2" id="typingIndicator" style="display: none;">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
         <button
           type="submit"
-          class="px-4 py-2 bg-purple-600/80 hover:bg-purple-600 text-white rounded-lg transition-colors flex items-center"
+          class="send-button"
         >
-          <i class="fa-solid fa-paper-plane mr-2"></i>
+          <i class="fa-solid fa-paper-plane"></i>
           Send
         </button>
       </form>
     </div>
   </div>
 </div>
+
+<script>
+function formatTimestamp() {
+  const now = new Date();
+  const hours = now.getHours().toString().padStart(2, '0');
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  return `${hours}:${minutes}`;
+}
+
+function appendMessage(content, isUser = false) {
+  const messagesDiv = document.getElementById('chatMessages');
+  const messageDiv = document.createElement('div');
+  messageDiv.className = `chat-message ${isUser ? 'user-message' : 'ai-message'} animate-fade-in`;
+  
+  const messageContent = document.createElement('p');
+  messageContent.textContent = content;
+  messageDiv.appendChild(messageContent);
+  
+  const timeDiv = document.createElement('div');
+  timeDiv.className = 'message-time';
+  timeDiv.textContent = formatTimestamp();
+  messageDiv.appendChild(timeDiv);
+  
+  messagesDiv.appendChild(messageDiv);
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+</script>
+
+<style>
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.2);
+  border-radius: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.4);
+}
+</style>

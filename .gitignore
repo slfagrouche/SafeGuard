@@ -25,6 +25,10 @@ Temporary Items
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+incidents/__pycache__/
+incidents/migrations/__pycache__/
+flow_alerts/__pycache__
+flow_alerts/migrations/__pycache__/
 
 # C extensions
 *.so
@@ -166,7 +170,11 @@ Package Control.ca-bundle
 Package Control.system-ca-bundle
 GitHub.sublime-settings
 
-
-
+get-pip.py
+main.py
+safeguard_agents.py
+infrastructure/pulumi/lambda_package
+infrastructure/pulumi/lambda.zip
+media/
 
 # credit to https://www.gitignore.io

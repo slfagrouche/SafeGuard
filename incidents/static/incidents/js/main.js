@@ -33,6 +33,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Add radius change handler
+  const radiusSelect = document.querySelector('select[class*="rounded-lg"]');
+  if (radiusSelect) {
+    radiusSelect.addEventListener('change', () => {
+      // Reload all markers with new radius
+      markers.forEach(marker => marker.remove());
+      markers = [];
+      loadIncidents();
+    });
+  }
+
   // Initialize map first
   if (document.getElementById('leaflet-map')) {
     console.log('Found leaflet-map element');
@@ -211,14 +222,13 @@ async function loadIncidents() {
     console.log("Loaded incidents:", data);
     
     // Filter out duplicates based on coordinates
-    const uniqueIncidents = data.filter((incident, index, self) =>
-      index === self.findIndex(i => 
-        i.latitude === incident.latitude && i.longitude === incident.longitude
-      )
+    // Sort incidents by datetime in descending order
+    const sortedIncidents = data.sort((a, b) => 
+      new Date(b.datetime) - new Date(a.datetime)
     );
     
-    incidents = uniqueIncidents;
-    uniqueIncidents.forEach(incident => {
+    incidents = sortedIncidents;
+    sortedIncidents.forEach(incident => {
       createIncidentMarker({
         lat: incident.latitude,
         lng: incident.longitude,
@@ -226,7 +236,7 @@ async function loadIncidents() {
         description: incident.description,
         source: incident.source,
         image_url: incident.image_url,
-        verified: incident.verified,
+        verified: Boolean(incident.verified), // Ensure boolean type
         address: incident.address
       });
     });
@@ -414,21 +424,17 @@ async function submitReport(e) {
     const desc = document.getElementById("incident-description").value.trim();
     const sourceLink = document.getElementById("incident-source").value.trim();
     const addressVal = document.getElementById("incident-address").value.trim();
-    const countryVal = document.getElementById("incident-country").value.trim();
-
     console.log("Form Values:", {
       dateTime: dtValue,
-      description: desc,
-      country: countryVal
+      description: desc
     });
 
-    if (!dtValue || !desc || !countryVal) {
+    if (!dtValue || !desc) {
       console.log("Missing required fields:", {
         dateTime: !dtValue,
-        description: !desc,
-        country: !countryVal
+        description: !desc
       });
-      alert("Please fill in required fields (Date/Time, Description, and Country).");
+      alert("Please fill in required fields (Date/Time and Description).");
       return;
     }
 
@@ -471,7 +477,6 @@ async function submitReport(e) {
         source: sourceLink,
         image: uploadedImageBase64,
         address: addressVal,
-        country: countryVal
       }),
     });
 
@@ -537,31 +542,177 @@ function createIncidentMarker(incident) {
 }
 
 function addMarkerToMap(incident) {
-  const lat = incident.latitude || incident.lat;
-  const lng = incident.longitude || incident.lng;
-
-  // Check if marker already exists at these coordinates
-  const existingMarker = markers.find(m => 
+  let lat = incident.latitude || incident.lat;
+  let lng = incident.longitude || incident.lng;
+  
+  // Check for existing markers at these coordinates
+  const existingCount = markers.filter(m => 
     (m.incident.latitude || m.incident.lat) === lat && 
     (m.incident.longitude || m.incident.lng) === lng
-  );
+  ).length;
   
-  if (existingMarker) return;
+  // If there are existing markers at this location, offset this one slightly
+  if (existingCount > 0) {
+    // Add a small offset (about 50 meters) in a circular pattern
+    // Create a spiral pattern for multiple markers
+    const angle = (2 * Math.PI * existingCount) / 8; // Divide circle into 8 parts
+    const spiralDistance = 0.002 * (1 + existingCount * 0.5); // Increase distance with each marker
+    lat = lat + (spiralDistance * Math.cos(angle));
+    lng = lng + (spiralDistance * Math.sin(angle));
+  }
 
-  const marker = L.circle([lat, lng], {
-    color: "#ff0000",
-    fillColor: "#ff0000",
-    fillOpacity: incident.verified ? 0.4 : 0.2,
-    radius: 15000,
-    weight: incident.verified ? 2 : 1,
-    stroke: true,
-    strokeOpacity: 0.8
+  // Create pin marker HTML with verification badge
+  const markerHtml = `
+    <div class="pin-container" style="position: relative;">
+      <div class="pin" style="
+        width: 30px;
+        height: 30px;
+        background-color: #ff0000;
+        border: 2px solid #ffffff;
+        border-radius: 50% 50% 50% 0;
+        transform: rotate(-45deg);
+        box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
+        position: relative;
+      "></div>
+      ${incident.verified ? `
+        <div style="
+          position: absolute;
+          top: -5px;
+          right: -5px;
+          width: 16px;
+          height: 16px;
+          background: #00c853;
+          border: 2px solid white;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 2;
+        ">
+          <i class="fa-solid fa-check" style="color: white; font-size: 8px; margin-top: -1px;"></i>
+        </div>
+      ` : `
+        <div style="
+          position: absolute;
+          top: -5px;
+          right: -5px;
+          width: 16px;
+          height: 16px;
+          background: #ffc107;
+          border: 2px solid white;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 2;
+        ">
+          <i class="fa-solid fa-clock" style="color: white; font-size: 8px; margin-top: -1px;"></i>
+        </div>
+      `}
+      <div class="pin-shadow" style="
+        width: 20px;
+        height: 6px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        margin-top: -3px;
+        filter: blur(2px);
+      "></div>
+    </div>`;
+
+  const icon = L.divIcon({
+    className: "custom-pin-marker",
+    html: markerHtml,
+    iconSize: [30, 42],
+    iconAnchor: [15, 42],
+  });
+
+  const marker = L.marker([lat, lng], {
+    icon: icon,
   })
   .addTo(map)
   .on("click", () => openIncidentDetails(incident));
   
   marker.incident = incident;
   markers.push(marker);
+
+  // Add radius circle
+  const radiusSelect = document.querySelector('select[class*="rounded-lg"]');
+  const radiusKm = parseInt(radiusSelect?.value || 5);
+  const radiusMeters = radiusKm * 1000;
+
+  const circle = L.circle([lat, lng], {
+    color: "#ff0000",
+    fillColor: "#ff0000",
+    fillOpacity: 0.1,
+    radius: radiusMeters,
+    weight: 1,
+    stroke: true,
+    strokeOpacity: 0.3
+  }).addTo(map);
+
+  // Store circle reference for later removal
+  marker.circle = circle;
+}
+
+// Update map initialization to set higher zoom level
+function initializeMap() {
+  console.log('Initializing map');
+  
+  // Create map instance with higher zoom level
+  map = L.map('leaflet-map', {
+    center: [20, 0], // Center more towards populated areas
+    zoom: 3, // Even lower zoom level to show more area
+    zoomControl: true,
+    attributionControl: false
+  });
+
+  // Add default layer (hybrid)
+  addGoogleLayer('hybrid');
+
+  // Load existing incidents
+  loadIncidents();
+
+  // Force a resize after initialization
+  setTimeout(() => {
+    map.invalidateSize();
+    
+    // Add click handler for markers after map is properly sized
+    map.on('click', function(e) {
+      console.log('Map clicked at:', e.latlng);
+      
+      // Format coordinates with 6 decimal places
+      const lat = parseFloat(e.latlng.lat).toFixed(6);
+      const lng = parseFloat(e.latlng.lng).toFixed(6);
+      
+      // Store clicked location
+      lastClickedLocation = { lat, lng, latlng: e.latlng };
+      
+      // Remove previous temporary marker if it exists
+      if (tempMarker) {
+        tempMarker.remove();
+      }
+
+      // Create a new pin marker at clicked location
+      createTempMarker(e.latlng);
+
+      // Try to get country from coordinates
+      fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.address && data.address.country_code) {
+            const countryCode = data.address.country_code.toUpperCase();
+            const countrySelect = document.getElementById("incident-country");
+            if (Array.from(countrySelect.options).some(opt => opt.value === countryCode)) {
+              countrySelect.value = countryCode;
+            }
+          }
+        })
+        .catch(error => console.error("Error getting country:", error));
+      
+      // Pan map to center on clicked location with smooth animation
+      map.panTo(e.latlng, { animate: true, duration: 0.5 });
+    });
+  }, 100);
 }
 
 function addIncidentToSidebar(incident) {
@@ -607,22 +758,61 @@ function openIncidentDetails(incident) {
   document.getElementById("detailsDescription").innerText = incident.description;
 
   const detailsImg = document.getElementById("detailsImage");
+  
+  // Reset image state
+  detailsImg.style.display = "none";
+  detailsImg.style.opacity = "0";
+  detailsImg.src = "";
+  
+  // Show loading spinner
+  const loadingSpinner = document.createElement("div");
+  loadingSpinner.className = "loading-spinner";
+  loadingSpinner.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+  detailsImg.parentNode.insertBefore(loadingSpinner, detailsImg);
+
   if (incident.image_url) {
-    detailsImg.src = incident.image_url;
-    detailsImg.style.display = "block";
+    // Create a new Image object to preload
+    const img = new Image();
     
-    // Add loading indicator
-    detailsImg.style.opacity = "0.5";
-    detailsImg.onload = function() {
-      detailsImg.style.opacity = "1";
+    // Set crossOrigin to handle CORS for S3 URLs
+    if (incident.image_url.includes('amazonaws.com')) {
+      img.crossOrigin = 'anonymous';
+    }
+    
+    img.onload = function() {
+      // Remove loading spinner
+      if (loadingSpinner) loadingSpinner.remove();
+      
+      // Update the actual image element
+      detailsImg.src = incident.image_url;
+      detailsImg.style.display = "block";
+      
+      // Fade in the image
+      requestAnimationFrame(() => {
+        detailsImg.style.transition = "opacity 0.3s ease-in-out";
+        detailsImg.style.opacity = "1";
+      });
     };
-    detailsImg.onerror = function() {
-      detailsImg.src = '/static/incidents/images/placeholder.svg';
-      detailsImg.style.opacity = "1";
+    
+    img.onerror = function(error) {
+      console.error('Error loading image:', error);
+      // Remove loading spinner
+      if (loadingSpinner) loadingSpinner.remove();
+      
+      // Show error state
+      document.getElementById('imageError').style.display = 'flex';
+      detailsImg.style.display = "none";
     };
+    
+    // Start loading the image
+    img.src = incident.image_url;
   } else {
+    // Remove loading spinner
+    loadingSpinner.remove();
+    // Show placeholder immediately
     detailsImg.src = '/static/incidents/images/placeholder.svg';
     detailsImg.style.display = "block";
+    detailsImg.style.opacity = "1";
   }
 
   const detailsSource = document.getElementById("detailsSource");
@@ -645,11 +835,27 @@ function openIncidentDetails(incident) {
 
   const verificationStatus = document.getElementById("verificationStatus");
   if (incident.verified) {
-    verificationStatus.innerText = "Verified by Developer";
-    verificationStatus.className = "verification-badge verified";
+    verificationStatus.className = "flex items-center gap-2 p-3 rounded-lg bg-green-500/10 border border-green-500/20";
+    verificationStatus.innerHTML = `
+      <div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
+        <i class="fa-solid fa-shield-check text-green-400"></i>
+      </div>
+      <div>
+        <p class="text-green-400 font-medium">Verified</p>
+        <p class="text-green-400/60 text-sm">This incident has been verified by our team</p>
+      </div>
+    `;
   } else {
-    verificationStatus.innerText = "Unverified";
-    verificationStatus.className = "verification-badge unverified";
+    verificationStatus.className = "flex items-center gap-2 p-3 rounded-lg bg-yellow-500/10 border border-yellow-500/20";
+    verificationStatus.innerHTML = `
+      <div class="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center">
+        <i class="fa-solid fa-clock text-yellow-400"></i>
+      </div>
+      <div>
+        <p class="text-yellow-400 font-medium">Pending Verification</p>
+        <p class="text-yellow-400/60 text-sm">This incident is currently being reviewed</p>
+      </div>
+    `;
   }
 }
 
@@ -786,24 +992,228 @@ function filterByCountry() {
 }
 
 // AI Chat functionality
+let isWaitingForResponse = false;
+let chatHistory = [];
+
 function openChat(type) {
-  alert(`Opening ${type} chat... This feature is coming soon!`);
+  const chatModal = document.getElementById('chatModal');
+  const chatMessages = document.getElementById('chatMessages');
+  const chatTitle = document.getElementById('chatTitle');
+  
+  // Fetch chat history
+  fetchChatHistory();
+  
+  // Show modal with fade-in animation
+  chatModal.style.opacity = '0';
+  chatModal.style.display = 'flex';
+  requestAnimationFrame(() => {
+    chatModal.style.transition = 'opacity 0.3s ease-in-out';
+    chatModal.style.opacity = '1';
+  });
+  
+  // Focus input after animation
+  setTimeout(() => {
+    document.getElementById('messageInput').focus();
+  }, 300);
 }
+
+function closeChat() {
+  const chatModal = document.getElementById('chatModal');
+  chatModal.style.opacity = '0';
+  setTimeout(() => {
+    chatModal.style.display = 'none';
+  }, 300);
+}
+
+async function fetchChatHistory() {
+  try {
+    const response = await fetch('/chat/history/');
+    const data = await response.json();
+    
+    if (data.history) {
+      chatHistory = data.history;
+      const chatMessages = document.getElementById('chatMessages');
+      chatMessages.innerHTML = '';
+      
+      // Add messages with staggered animation
+      data.history.forEach((msg, index) => {
+        setTimeout(() => {
+          addMessage(msg.role, msg.content, false);
+        }, index * 100);
+      });
+    }
+  } catch (error) {
+    console.error('Error fetching chat history:', error);
+  }
+}
+
+function formatMarkdown(content) {
+  return content
+    .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold">$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')
+    .replace(/`(.*?)`/g, '<code class="bg-blue-500/10 px-1 py-0.5 rounded">$1</code>')
+    .replace(/\n/g, '<br>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" class="text-blue-400 hover:text-blue-300 underline">$1</a>');
+}
+
+function addMessage(type, content, animate = true) {
+  const chatMessages = document.getElementById('chatMessages');
+  const messageDiv = document.createElement('div');
+  const isUser = type === 'user';
+  
+  messageDiv.className = `chat-message ${isUser ? 'user-message' : 'ai-message'} ${animate ? 'animate-fade-in' : ''}`;
+  
+  const formattedContent = formatMarkdown(content);
+  
+  messageDiv.innerHTML = `
+    <div class="flex items-start gap-4">
+      <div class="flex-shrink-0 w-8 h-8 rounded-full ${
+        isUser ? 'bg-blue-500/20' : 'bg-blue-500/10'
+      } flex items-center justify-center">
+        <i class="fa-solid ${
+          isUser ? 'fa-user text-blue-400' : 'fa-brain text-blue-400'
+        } text-sm"></i>
+      </div>
+      <div class="flex-1">
+        <div class="text-white text-sm leading-relaxed whitespace-pre-wrap">
+          ${formattedContent}
+        </div>
+        <div class="message-time">${formatTimestamp()}</div>
+      </div>
+    </div>
+  `;
+  
+  chatMessages.appendChild(messageDiv);
+  
+  // Smooth scroll to bottom
+  const scrollOptions = {
+    top: chatMessages.scrollHeight,
+    behavior: 'smooth'
+  };
+  chatMessages.scrollTo(scrollOptions);
+}
+
+async function sendMessage(event) {
+  event.preventDefault();
+  
+  if (isWaitingForResponse) return;
+  
+  const messageInput = document.getElementById('messageInput');
+  const message = messageInput.value.trim();
+  const submitButton = event.target.querySelector('button[type="submit"]');
+  const typingIndicator = document.getElementById('typingIndicator');
+  
+  if (!message) return;
+  
+  // Clear input and disable
+  messageInput.value = '';
+  messageInput.disabled = true;
+  
+  // Add user message to chat
+  addMessage('user', message);
+  
+  // Show loading state
+  isWaitingForResponse = true;
+  submitButton.disabled = true;
+  submitButton.classList.add('opacity-50');
+  typingIndicator.style.display = 'block';
+  
+  try {
+    // Send message to backend
+    const response = await fetch('/chat/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': getCsrfToken(),
+      },
+      body: JSON.stringify({ message }),
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    
+    if (data.error) {
+      throw new Error(data.error);
+    }
+    
+    // Add AI response to chat
+    addMessage('system', data.response || 'I understand your message. Let me help you with that.');
+    
+  } catch (error) {
+    console.error('Chat error:', error);
+    addMessage('system', `I apologize, but I encountered an error: ${error.message}. Please try rephrasing your question or try again later.`);
+  } finally {
+    // Reset all states
+    isWaitingForResponse = false;
+    submitButton.disabled = false;
+    submitButton.classList.remove('opacity-50');
+    messageInput.disabled = false;
+    typingIndicator.style.display = 'none';
+    messageInput.focus();
+  }
+}
+
+// Add input handling for better UX
+document.addEventListener('DOMContentLoaded', () => {
+  const messageInput = document.getElementById('messageInput');
+  const submitButton = document.querySelector('.send-button');
+  
+  messageInput?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      if (!isWaitingForResponse && messageInput.value.trim()) {
+        submitButton.click();
+      }
+    }
+  });
+  
+  messageInput?.addEventListener('input', () => {
+    submitButton.disabled = !messageInput.value.trim();
+    submitButton.classList.toggle('opacity-50', !messageInput.value.trim());
+  });
+});
 
 // Subscribe form
 async function subscribeUser(e) {
   e.preventDefault();
 
-  const name = document.getElementById("sub-name").value.trim();
-  const email = document.getElementById("sub-email").value.trim();
-  const addressVal = document.getElementById("sub-address").value.trim();
-
-  if (!name || !email || !addressVal) {
-    alert("Please fill in all required fields.");
-    return;
-  }
+  const submitButton = e.target.querySelector('button[type="submit"]');
+  const originalButtonText = submitButton.innerHTML;
 
   try {
+    submitButton.disabled = true;
+    submitButton.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>Subscribing...';
+
+    const name = document.getElementById("sub-name").value.trim();
+    const email = document.getElementById("sub-email").value.trim();
+    const addressVal = document.getElementById("sub-address").value.trim();
+
+    if (!name || !email || !addressVal) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    // Geocode the address
+    let latitude, longitude;
+    try {
+      const geocodeUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(addressVal)}`;
+      const geocodeResponse = await fetch(geocodeUrl);
+      const geocodeData = await geocodeResponse.json();
+
+      if (geocodeData && geocodeData.length > 0) {
+        latitude = parseFloat(geocodeData[0].lat);
+        longitude = parseFloat(geocodeData[0].lon);
+      } else {
+        throw new Error("Could not geocode address");
+      }
+    } catch (error) {
+      alert("Could not verify the address location. Please check the address and try again.");
+      return;
+    }
+
     const response = await fetch("/subscribe/", {
       method: "POST",
       headers: {
@@ -814,17 +1224,24 @@ async function subscribeUser(e) {
         name: name,
         email: email,
         address: addressVal,
+        latitude: latitude,
+        longitude: longitude
       }),
     });
 
     const data = await response.json();
     if (data.status === "success") {
+      const radiusSelect = document.querySelector('select[class*="rounded-lg"]');
+      const radius = radiusSelect?.value || 5;
       document.getElementById("subscribeForm").reset();
-      alert("Successfully subscribed to alerts!");
+      alert(`Successfully subscribed to alerts! You will receive notifications for incidents within ${radius}km of your location.`);
     } else {
       alert("Error subscribing: " + data.message);
     }
   } catch (error) {
     alert("Error subscribing: " + error);
+  } finally {
+    submitButton.disabled = false;
+    submitButton.innerHTML = originalButtonText;
   }
 }

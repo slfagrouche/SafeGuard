@@ -11,6 +11,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'
 
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+
 # Media files configuration
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -61,20 +63,34 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'flow_alerts.wsgi.application'
 
-# AWS Configuration
+# AWS Configuration with validation
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+if not AWS_ACCESS_KEY_ID:
+    raise ValueError("AWS_ACCESS_KEY_ID must be set in environment variables")
+
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+if not AWS_SECRET_ACCESS_KEY:
+    raise ValueError("AWS_SECRET_ACCESS_KEY must be set in environment variables")
+
 AWS_REGION = os.getenv('AWS_REGION', 'us-east-1')
-AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME', 'flow-alerts-storage')
-AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_REGION}.amazonaws.com'
+AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+if not AWS_STORAGE_BUCKET_NAME:
+    raise ValueError("AWS_STORAGE_BUCKET_NAME must be set in environment variables")
+
+# S3 Security Settings
 AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
+    'CacheControl': 'max-age=3600',  # 1 hour cache
 }
-AWS_DEFAULT_ACL = 'public-read'
+AWS_DEFAULT_ACL = 'private'  # Keep S3 objects private, access through presigned URLs
 
 # DynamoDB table names
 DYNAMODB_INCIDENTS_TABLE = 'Incidents'
 DYNAMODB_SUBSCRIBERS_TABLE = 'Subscribers'
+
+# SNS Configuration
+SNS_TOPIC_ARN = os.getenv('SNS_TOPIC_ARN')
+if not SNS_TOPIC_ARN:
+    raise ValueError("SNS_TOPIC_ARN must be set in environment variables")
 
 # Keep this for Django admin and auth functionality
 DATABASES = {
