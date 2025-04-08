@@ -136,7 +136,7 @@ Stored in `.env`:
 ]
 ```
 
-#### POST `/api/incidents/`
+#### POST `/report`
 **Purpose:** Report a new incident.  
 **Request:**
 ```json
