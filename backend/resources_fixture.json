@@ -1,0 +1,1369 @@
+[
+  {
+    "model": "incidents.resource",
+    "pk": 1,
+    "fields": {
+      "name": "Al-Shifa Medical Complex",
+      "resource_type": "hospital",
+      "location": "POINT(34.4333 31.5167)",
+      "contact": "+970-8-286-3596",
+      "services": "Emergency medicine, surgery, trauma care, ICU, pediatrics",
+      "hours": "24/7",
+      "verified": true,
+      "created_at": "2026-04-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 2,
+    "fields": {
+      "name": "European Gaza Hospital",
+      "resource_type": "hospital",
+      "location": "POINT(34.3039 31.3849)",
+      "contact": "+970-8-212-7755",
+      "services": "Emergency department, surgical services, trauma care, ICU",
+      "hours": "24/7",
+      "verified": true,
+      "created_at": "2026-04-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 3,
+    "fields": {
+      "name": "Palestine Red Crescent Society HQ",
+      "resource_type": "aid_org",
+      "location": "POINT(34.4523 31.5036)",
+      "contact": "+970-2-240-6515",
+      "services": "Emergency medical services, ambulance, humanitarian aid distribution, blood bank",
+      "hours": "24/7 emergency services",
+      "verified": true,
+      "created_at": "2026-04-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 4,
+    "fields": {
+      "name": "UNRWA Emergency Shelter Khan Younis",
+      "resource_type": "shelter",
+      "location": "POINT(34.3063 31.3464)",
+      "contact": "+970-8-677-7527",
+      "services": "Emergency shelter, food distribution, medical services, education services",
+      "hours": "24/7 during emergencies",
+      "verified": true,
+      "created_at": "2026-04-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 5,
+    "fields": {
+      "name": "Al-Aqsa Martyrs Hospital",
+      "resource_type": "hospital",
+      "location": "POINT(34.3499 31.4181)",
+      "contact": "+970-8-255-0095",
+      "services": "Emergency care, surgery, trauma services, pediatrics",
+      "hours": "24/7",
+      "verified": true,
+      "created_at": "2026-04-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 6,
+    "fields": {
+      "name": "Gaza Community Pharmacy",
+      "resource_type": "pharmacy",
+      "location": "POINT(34.4519 31.5214)",
+      "contact": "+970-8-282-4567",
+      "services": "Prescription medications, over-the-counter drugs, basic medical supplies",
+      "hours": "08:00-20:00 daily",
+      "verified": false,
+      "created_at": "2026-04-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 7,
+    "fields": {
+      "name": "Khartoum Teaching Hospital",
+      "resource_type": "hospital",
+      "location": "POINT(32.5599 15.5897)",
+      "contact": "+249-183-776-123",
+      "services": "Emergency services, surgery, internal medicine, trauma care, ICU",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 8,
+    "fields": {
+      "name": "ICRC Khartoum Office",
+      "resource_type": "aid_org",
+      "location": "POINT(32.5500 15.5877)",
+      "contact": "+249-183-784-490",
+      "services": "Medical support, surgical care, family reunification, protection services, humanitarian aid",
+      "hours": "08:00-17:00 weekdays, emergency 24/7",
+      "verified": true,
+      "created_at": "2026-04-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 9,
+    "fields": {
+      "name": "MSF Clinic El Fasher",
+      "resource_type": "hospital",
+      "location": "POINT(25.3486 13.6290)",
+      "contact": "",
+      "services": "Emergency medical care, surgical services, maternal health, nutrition programs",
+      "hours": "24/7 emergency care",
+      "verified": true,
+      "created_at": "2026-04-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 10,
+    "fields": {
+      "name": "WFP Distribution Center Khartoum",
+      "resource_type": "aid_org",
+      "location": "POINT(32.5332 15.5518)",
+      "contact": "+249-183-xxx-xxx",
+      "services": "Food distribution, emergency food assistance, nutrition programs",
+      "hours": "Distribution days announced locally",
+      "verified": true,
+      "created_at": "2026-04-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 11,
+    "fields": {
+      "name": "Sudan Red Crescent Society HQ",
+      "resource_type": "aid_org",
+      "location": "POINT(32.5420 15.5730)",
+      "contact": "+249-183-784-490",
+      "services": "Emergency response, ambulance services, first aid, humanitarian aid, community support",
+      "hours": "24/7 emergency services",
+      "verified": true,
+      "created_at": "2026-04-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 12,
+    "fields": {
+      "name": "Port Sudan Water Distribution Point",
+      "resource_type": "water_point",
+      "location": "POINT(37.2167 19.6158)",
+      "contact": "",
+      "services": "Clean water distribution, water purification",
+      "hours": "06:00-18:00 daily",
+      "verified": false,
+      "created_at": "2026-04-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 13,
+    "fields": {
+      "name": "Kyiv City Clinical Hospital #1",
+      "resource_type": "hospital",
+      "location": "POINT(30.5234 50.4501)",
+      "contact": "+38-044-254-3036",
+      "services": "Emergency care, surgery, trauma services, ICU, cardiology",
+      "hours": "24/7",
+      "verified": true,
+      "created_at": "2026-04-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 14,
+    "fields": {
+      "name": "Ukrainian Red Cross Kyiv",
+      "resource_type": "aid_org",
+      "location": "POINT(30.5178 50.4547)",
+      "contact": "+38-044-238-5035",
+      "services": "First aid, psychosocial support, humanitarian aid distribution, tracing services",
+      "hours": "08:00-18:00 weekdays, emergency 24/7",
+      "verified": true,
+      "created_at": "2026-04-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 15,
+    "fields": {
+      "name": "UNHCR Registration Center Lviv",
+      "resource_type": "aid_org",
+      "location": "POINT(24.0232 49.8397)",
+      "contact": "0-800-507-309",
+      "services": "IDP registration, legal assistance, humanitarian aid, cash assistance, protection services",
+      "hours": "09:00-17:00 weekdays",
+      "verified": true,
+      "created_at": "2026-04-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 16,
+    "fields": {
+      "name": "Heating Center Kharkiv Central",
+      "resource_type": "shelter",
+      "location": "POINT(36.2304 49.9935)",
+      "contact": "+38-057-xxx-xxxx",
+      "services": "Heating, electricity for charging, internet, hot beverages, basic medical care",
+      "hours": "During power outages (24/7 when active)",
+      "verified": false,
+      "created_at": "2026-04-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 17,
+    "fields": {
+      "name": "WHO Health Cluster Dnipro",
+      "resource_type": "aid_org",
+      "location": "POINT(35.0462 48.4647)",
+      "contact": "",
+      "services": "Health sector coordination, emergency medical supplies, healthcare support",
+      "hours": "09:00-17:00 weekdays",
+      "verified": true,
+      "created_at": "2026-04-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 18,
+    "fields": {
+      "name": "Lviv Regional Clinical Hospital",
+      "resource_type": "hospital",
+      "location": "POINT(24.0125 49.8383)",
+      "contact": "+38-032-260-2303",
+      "services": "Emergency department, surgery, trauma care, ICU, specialized care",
+      "hours": "24/7",
+      "verified": true,
+      "created_at": "2026-04-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 19,
+    "fields": {
+      "name": "Al-Thawra General Hospital",
+      "resource_type": "hospital",
+      "location": "POINT(44.2075 15.3694)",
+      "contact": "",
+      "services": "Emergency, surgery, trauma, ICU, oncology, maternal health - Yemen's largest hospital (~900 beds)",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 20,
+    "fields": {
+      "name": "Marib General Hospital",
+      "resource_type": "hospital",
+      "location": "POINT(45.3031 15.4603)",
+      "contact": "",
+      "services": "Emergency, surgery, trauma care, prosthetics workshop - 120 beds. Frontline hospital serving Marib conflict zone",
+      "hours": "24/7",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 21,
+    "fields": {
+      "name": "Al-Jumhouri Hospital",
+      "resource_type": "hospital",
+      "location": "POINT(44.1910 15.3547)",
+      "contact": "",
+      "services": "Emergency, internal medicine, surgery, pediatrics - ~300 beds",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 22,
+    "fields": {
+      "name": "Al-Sadaqa Hospital",
+      "resource_type": "hospital",
+      "location": "POINT(45.0286 12.7855)",
+      "contact": "",
+      "services": "Emergency, surgery, maternal health, pediatrics - ~200 beds. Main hospital in Aden",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 23,
+    "fields": {
+      "name": "ICRC Yemen",
+      "resource_type": "aid_org",
+      "location": "POINT(44.1912 15.3556)",
+      "contact": "+967-1-467873",
+      "services": "Healthcare (42 facilities supported, 1.1M+ consultations/year), water/sanitation (1.1M beneficiaries), mine clearance, detainee visits, economic support. Community Contact: 8005544 / WhatsApp +967-737503687",
+      "hours": "08:00-16:30 Sun-Thu, Community Contact 08:00-16:00",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 24,
+    "fields": {
+      "name": "WFP Yemen",
+      "resource_type": "aid_org",
+      "location": "POINT(44.1915 15.3570)",
+      "contact": "+967-1-214100",
+      "services": "Emergency food distribution, cash transfers, nutrition programs, school meals. Email: WFP.Sanaa@wfp.org. Serves 19.5M in need",
+      "hours": "Office hours Sun-Thu",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 25,
+    "fields": {
+      "name": "Yemen Red Crescent Society",
+      "resource_type": "aid_org",
+      "location": "POINT(44.2060 15.3500)",
+      "contact": "",
+      "services": "Emergency response, ambulance services, first aid, humanitarian aid distribution. Works in partnership with ICRC",
+      "hours": "24/7 emergency services",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 26,
+    "fields": {
+      "name": "Marib IDP Camps",
+      "resource_type": "shelter",
+      "location": "POINT(45.3200 15.4700)",
+      "contact": "",
+      "services": "Emergency shelter, food distribution, water, basic medical care. Major IDP concentration (hundreds of thousands displaced)",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 27,
+    "fields": {
+      "name": "Al-Hudaydah Water Distribution",
+      "resource_type": "water_point",
+      "location": "POINT(42.9540 14.7980)",
+      "contact": "",
+      "services": "Clean water distribution, WASH services. ICRC-supported water programs in Hudaydah governorate",
+      "hours": "06:00-18:00 daily",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 28,
+    "fields": {
+      "name": "Damascus Hospital (Al-Mujtahid)",
+      "resource_type": "hospital",
+      "location": "POINT(36.2696 33.5057)",
+      "contact": "",
+      "services": "Emergency, cardiology, neurology, nephrology, cardiac/neuro surgery, kidney transplant, MRI/CT, 11 operating rooms - 645 beds (36 ICU)",
+      "hours": "24/7",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 29,
+    "fields": {
+      "name": "Aleppo University Hospital",
+      "resource_type": "hospital",
+      "location": "POINT(37.1584 36.2027)",
+      "contact": "",
+      "services": "Emergency, surgery, trauma, all specialties, teaching hospital - ~1500 beds pre-war. Status may be affected by conflict damage",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 30,
+    "fields": {
+      "name": "Tishreen Military Hospital",
+      "resource_type": "hospital",
+      "location": "POINT(36.2760 33.5190)",
+      "contact": "",
+      "services": "Emergency, surgery, trauma, military medicine, rehabilitation - ~1000 beds",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 31,
+    "fields": {
+      "name": "National Hospital Latakia",
+      "resource_type": "hospital",
+      "location": "POINT(35.7796 35.5317)",
+      "contact": "",
+      "services": "Emergency, surgery, internal medicine, pediatrics, maternal health - ~400 beds. Located in relatively safer coastal area",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 32,
+    "fields": {
+      "name": "ICRC Syria",
+      "resource_type": "aid_org",
+      "location": "POINT(36.2785 33.5125)",
+      "contact": "+963-930336718",
+      "services": "Food, healthcare, water/sanitation, missing persons tracing (35,000+ cases), detainee support, livelihood restoration. Works with Syrian Arab Red Crescent. Present since 1967",
+      "hours": "Office hours, emergency 24/7",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 33,
+    "fields": {
+      "name": "WFP Syria",
+      "resource_type": "aid_org",
+      "location": "POINT(36.2450 33.5050)",
+      "contact": "+963-11-6110712",
+      "services": "Food distribution (3.6M served 2024), school meals (460K students), nutrition (300K women/children), livelihoods programs. Email: syria.media@wfp.org",
+      "hours": "Office hours",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 34,
+    "fields": {
+      "name": "Syrian Arab Red Crescent (SARC)",
+      "resource_type": "aid_org",
+      "location": "POINT(36.2900 33.5130)",
+      "contact": "",
+      "services": "Emergency response, ambulance services, humanitarian aid, health services. Primary ICRC partner in Syria",
+      "hours": "24/7 emergency services",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 35,
+    "fields": {
+      "name": "Bab al-Hawa Border Crossing Camp",
+      "resource_type": "shelter",
+      "location": "POINT(36.5175 36.1800)",
+      "contact": "",
+      "services": "IDP shelter, food distribution, medical care, WASH services. Major humanitarian crossing point on Syria-Turkey border",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 36,
+    "fields": {
+      "name": "Al-Hol Camp",
+      "resource_type": "shelter",
+      "location": "POINT(40.9500 36.2300)",
+      "contact": "",
+      "services": "IDP/refugee shelter, water distribution, food, basic health services. One of Syria's largest displacement camps in Hasakeh governorate",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 37,
+    "fields": {
+      "name": "Indira Gandhi Children's Hospital",
+      "resource_type": "hospital",
+      "location": "POINT(69.1850 34.5387)",
+      "contact": "",
+      "services": "Emergency, pediatrics, cerebral palsy treatment, prosthetics center (capacity ~1000). 400 beds (150 operational). Founded 1969",
+      "hours": "24/7",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 38,
+    "fields": {
+      "name": "Mirwais Hospital",
+      "resource_type": "hospital",
+      "location": "POINT(65.6800 31.6208)",
+      "contact": "",
+      "services": "Emergency, surgery (3 theatres, 150 surgical beds), pediatrics, blood bank, X-ray. 600 beds. ICRC-supported (70% funding). Serves Kandahar, Helmand, Zabul, Oruzgan provinces",
+      "hours": "24/7",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 39,
+    "fields": {
+      "name": "Jamhuriat Hospital",
+      "resource_type": "hospital",
+      "location": "POINT(69.1720 34.5300)",
+      "contact": "",
+      "services": "Emergency, pediatric oncology, general medicine. 350 beds (4-story + 10-story buildings). Under renovation as of 2023",
+      "hours": "24/7",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 40,
+    "fields": {
+      "name": "Herat Regional Hospital",
+      "resource_type": "hospital",
+      "location": "POINT(62.1995 34.3420)",
+      "contact": "",
+      "services": "Emergency, surgery, internal medicine, maternal health, pediatrics - ~350 beds",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 41,
+    "fields": {
+      "name": "ICRC Afghanistan",
+      "resource_type": "aid_org",
+      "location": "POINT(69.1810 34.5350)",
+      "contact": "+93-799550055",
+      "services": "Healthcare (1.27M served), 7 physical rehab centres (218K patients), water/sanitation, family reunification, cash-for-work, education. Alt phone: +93-701150000. Twitter: @ICRC_af",
+      "hours": "08:00-17:00",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 42,
+    "fields": {
+      "name": "WFP Afghanistan",
+      "resource_type": "aid_org",
+      "location": "POINT(69.1720 34.5280)",
+      "contact": "0790555544",
+      "services": "Emergency food, nutrition, school meals, cash assistance, UNHAS air service (12+ hard-to-reach locations). Email: WFP.Kabul@wfp.org. 17.4M projected food insecure",
+      "hours": "Feedback line: Sun-Thu 08:00-16:00",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 43,
+    "fields": {
+      "name": "Afghan Red Crescent Society (ARCS)",
+      "resource_type": "aid_org",
+      "location": "POINT(69.1750 34.5310)",
+      "contact": "",
+      "services": "Primary health care clinics, emergency response, ambulance services. ICRC primary partner in Afghanistan",
+      "hours": "24/7 emergency services",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 44,
+    "fields": {
+      "name": "ICRC Physical Rehabilitation Centres",
+      "resource_type": "aid_org",
+      "location": "POINT(69.1780 34.5280)",
+      "contact": "+93-799550055",
+      "services": "Physical rehabilitation, prosthetics, cerebral palsy care. 7 centres: Kabul, Nangarhar, Badakhshan, Balkh, Herat, Gulbahar, Helmand. 218,824 patients served",
+      "hours": "08:00-17:00",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 45,
+    "fields": {
+      "name": "Herat IDP Settlements",
+      "resource_type": "shelter",
+      "location": "POINT(62.1700 34.3200)",
+      "contact": "",
+      "services": "IDP shelter, food distribution, water access. Herat hosts significant displaced population",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+
+  {
+    "model": "incidents.resource",
+    "pk": 46,
+    "fields": {
+      "name": "HEAL Africa Hospital, Goma",
+      "resource_type": "hospital",
+      "location": "POINT(29.2336 -1.6794)",
+      "contact": "",
+      "services": "Surgery (fistula repair), orthopedics, internal medicine, pediatrics, obstetrics, community health programs",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 47,
+    "fields": {
+      "name": "Panzi Hospital, Bukavu",
+      "resource_type": "hospital",
+      "location": "POINT(28.8608 -2.5061)",
+      "contact": "",
+      "services": "Reconstructive surgery for sexual violence survivors, obstetrics/gynecology, internal medicine, AIDS diagnostics, pediatrics. Founded by Nobel laureate Dr. Denis Mukwege",
+      "hours": "24/7",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 48,
+    "fields": {
+      "name": "Centre Hospitalier Universitaire de Kinshasa",
+      "resource_type": "hospital",
+      "location": "POINT(15.3136 -4.3276)",
+      "contact": "",
+      "services": "Emergency medicine, surgery, internal medicine, pediatrics, obstetrics, ICU - main teaching hospital in Kinshasa",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 49,
+    "fields": {
+      "name": "ICRC Kinshasa Delegation",
+      "resource_type": "aid_org",
+      "location": "POINT(15.2867 -4.3100)",
+      "contact": "+243-81-700-6060",
+      "services": "Medical consultations, surgery for weapon injuries, psychological support, physical rehabilitation, clean water (675K+ served), family reunification, food/financial aid (214K+ served), sexual violence response. Media: +243-81-992-2328",
+      "hours": "08:00-17:00 weekdays, emergency 24/7",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 50,
+    "fields": {
+      "name": "WFP DRC Office, Kinshasa",
+      "resource_type": "aid_org",
+      "location": "POINT(15.2900 -4.3080)",
+      "contact": "+243-81-700-6714",
+      "services": "Food distribution (5.3M served 2024), emergency food assistance, nutrition programs, school feeding, humanitarian air services (UNHAS). Alt: +243-81-555-2199. Email: claude.kalinga@wfp.org",
+      "hours": "08:00-17:00 weekdays",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 51,
+    "fields": {
+      "name": "Croix-Rouge de la RDC (DRC Red Cross)",
+      "resource_type": "aid_org",
+      "location": "POINT(15.2940 -4.3060)",
+      "contact": "",
+      "services": "Emergency response, first aid, ambulance services, disaster relief, community health",
+      "hours": "24/7 emergency services",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 52,
+    "fields": {
+      "name": "Bulengo IDP Camp, Goma",
+      "resource_type": "shelter",
+      "location": "POINT(29.1800 -1.7000)",
+      "contact": "",
+      "services": "Emergency shelter, food distribution, water points, basic medical care. One of multiple IDP camps west of Goma hosting displaced from M23 conflict",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+
+  {
+    "model": "incidents.resource",
+    "pk": 53,
+    "fields": {
+      "name": "Banadir Hospital, Mogadishu",
+      "resource_type": "hospital",
+      "location": "POINT(45.2986 2.0344)",
+      "contact": "",
+      "services": "Maternity care, pediatrics, surgery, obstetrics/gynecology, internal medicine, orthopedics, laboratory, pharmacy. 700 beds, serves ~3M people",
+      "hours": "24/7",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 54,
+    "fields": {
+      "name": "Erdogan Hospital (Somalia-Turkey Training & Research Hospital), Mogadishu",
+      "resource_type": "hospital",
+      "location": "POINT(45.3400 2.0500)",
+      "contact": "",
+      "services": "Surgery, internal medicine, emergency care, specialized departments, training/research. Largest Turkish-built hospital in Africa (~200 beds)",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 55,
+    "fields": {
+      "name": "Hargeisa Group Hospital, Somaliland",
+      "resource_type": "hospital",
+      "location": "POINT(44.0650 9.5600)",
+      "contact": "",
+      "services": "Maternity, emergency, dental, ophthalmology, pediatrics, surgery, internal medicine, nephrology, orthopedics. 400 beds. Largest public hospital in Somaliland (est. 1953)",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 56,
+    "fields": {
+      "name": "ICRC Somalia Delegation, Mogadishu",
+      "resource_type": "aid_org",
+      "location": "POINT(45.2986 2.0344)",
+      "contact": "+254-709-132-000",
+      "services": "Emergency assistance, humanitarian law, family reconnection, physical rehabilitation, child malnutrition treatment, cash assistance, healthcare. 12 offices across Somalia. Community Contact: 373. WhatsApp: +254-706-408-908",
+      "hours": "07:30-16:30 Sunday-Friday",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 57,
+    "fields": {
+      "name": "WFP Somalia (Nairobi Office)",
+      "resource_type": "aid_org",
+      "location": "POINT(45.3180 2.0469)",
+      "contact": "+254-2-622930",
+      "services": "Emergency food/nutrition (6.5M food insecure), cash transfers, school meals, social protection (Baxnaano), humanitarian air services, logistics. Email: somalia.feedback@wfp.org",
+      "hours": "08:00-17:00 weekdays",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 58,
+    "fields": {
+      "name": "Somali Red Crescent Society, Mogadishu",
+      "resource_type": "aid_org",
+      "location": "POINT(45.3180 2.0469)",
+      "contact": "",
+      "services": "Emergency response, first aid, community health, disaster preparedness. Primary ICRC partner across Somalia",
+      "hours": "24/7 emergency services",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 59,
+    "fields": {
+      "name": "Dadaab Refugee Camp Complex (Kenya border)",
+      "resource_type": "shelter",
+      "location": "POINT(40.3090 0.0530)",
+      "contact": "",
+      "services": "Healthcare (Kenya Red Cross, IRC, MSF), solar-powered water boreholes, education (70K+ students), food distribution (WFP), microfinance (CARE). 4 camps: Dagahaley, Hagadera, Ifo, Ifo II. 426K+ refugees",
+      "hours": "24/7",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+
+  {
+    "model": "incidents.resource",
+    "pk": 60,
+    "fields": {
+      "name": "Tikur Anbessa (Black Lion) Specialized Hospital, Addis Ababa",
+      "resource_type": "hospital",
+      "location": "POINT(38.7500 9.0201)",
+      "contact": "",
+      "services": "Emergency care, surgery, orthopedics (16 consultants), internal medicine, cardiology, oncology, ICU. 700 beds, 400 doctors, 900 nurses. Teaching hospital (est. 1964)",
+      "hours": "24/7",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 61,
+    "fields": {
+      "name": "St. Paul's Hospital Millennium Medical College, Addis Ababa",
+      "resource_type": "hospital",
+      "location": "POINT(38.7276 9.0480)",
+      "contact": "",
+      "services": "Emergency department, hemodialysis, National Kidney Transplant Center, 13+ departments. 700+ beds, 200K patients/year, catchment 5M+. 75% patients treated free",
+      "hours": "24/7",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 62,
+    "fields": {
+      "name": "Ayder Comprehensive Specialized Hospital, Mekelle",
+      "resource_type": "hospital",
+      "location": "POINT(39.4753 13.4967)",
+      "contact": "",
+      "services": "Surgery (only surgical facility in Tigray), newborn care, dialysis, cancer care, MRI. 2nd largest hospital in Ethiopia, serves 8M+ people, 3600 staff. Severely impacted during Tigray War",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 63,
+    "fields": {
+      "name": "Felege Hiwot Referral Hospital, Bahir Dar",
+      "resource_type": "hospital",
+      "location": "POINT(37.3833 11.5936)",
+      "contact": "",
+      "services": "Emergency medicine, surgery, internal medicine, pediatrics, obstetrics/gynecology. Main referral hospital for Amhara Region",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 64,
+    "fields": {
+      "name": "ICRC Ethiopia Delegation, Addis Ababa",
+      "resource_type": "aid_org",
+      "location": "POINT(38.7800 9.0100)",
+      "contact": "+251-11-647-8300",
+      "services": "Protection/assistance, IHL promotion, water/sanitation (1M+ reached), family links (294K reunion calls), health support (434K patients), medical supplies. Community Contact: 9167",
+      "hours": "08:00-17:00 Monday-Friday",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 65,
+    "fields": {
+      "name": "Ethiopian Red Cross Society, Addis Ababa",
+      "resource_type": "aid_org",
+      "location": "POINT(38.7469 9.0192)",
+      "contact": "",
+      "services": "Emergency response, first aid, ambulance, disaster relief, blood bank services, community health. ICRC partner",
+      "hours": "24/7 emergency services",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 66,
+    "fields": {
+      "name": "Gambella Refugee Camps (South Sudanese refugees)",
+      "resource_type": "shelter",
+      "location": "POINT(34.5900 8.2500)",
+      "contact": "",
+      "services": "Emergency shelter, food distribution, water, education, health. 8 camps: Nguenyyie, Pinyudo, Tierkidi, Akula, Jawi, Leitchuor, Okugo. ~402K+ refugees (UNHCR/ARRA managed)",
+      "hours": "24/7",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+
+  {
+    "model": "incidents.resource",
+    "pk": 67,
+    "fields": {
+      "name": "Juba Teaching Hospital",
+      "resource_type": "hospital",
+      "location": "POINT(31.6085 4.8501)",
+      "contact": "",
+      "services": "Emergency, surgery, obstetrics/gynecology, neonatal ICU, infectious disease, vaccinations. 512 beds, serves 8.26M people. National referral hospital (University of Juba)",
+      "hours": "24/7",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 68,
+    "fields": {
+      "name": "Malakal Teaching Hospital",
+      "resource_type": "hospital",
+      "location": "POINT(31.6500 9.5500)",
+      "contact": "",
+      "services": "Maternity, outpatient department (limited - only 3 doctors as of 2021). ICRC/UNICEF supported. Damaged during 2014 civil war, partially reopened 2017",
+      "hours": "Daytime hours (limited staffing)",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 69,
+    "fields": {
+      "name": "Wau Teaching Hospital",
+      "resource_type": "hospital",
+      "location": "POINT(28.0000 7.7000)",
+      "contact": "",
+      "services": "General medicine, surgery, maternity, outpatient care",
+      "hours": "24/7 (limited capacity)",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 70,
+    "fields": {
+      "name": "ICRC South Sudan Delegation, Juba",
+      "resource_type": "aid_org",
+      "location": "POINT(31.6100 4.8600)",
+      "contact": "+211-912-170-275",
+      "services": "Family reunification, physical rehabilitation (3 centres: Juba, Rumbek, Wau), weapon-wound surgery, mental health support, water access, detention monitoring, sexual violence response, Sudanese refugee assistance",
+      "hours": "08:00-17:00 weekdays, emergency 24/7",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 71,
+    "fields": {
+      "name": "South Sudan Red Cross (SSRC), Juba",
+      "resource_type": "aid_org",
+      "location": "POINT(31.6000 4.8500)",
+      "contact": "",
+      "services": "Emergency preparedness, first aid, community health, disaster response, volunteer mobilization. ICRC primary partner in South Sudan",
+      "hours": "24/7 emergency services",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 72,
+    "fields": {
+      "name": "Bentiu POC Site (UNMISS), Unity State",
+      "resource_type": "shelter",
+      "location": "POINT(29.8000 9.2600)",
+      "contact": "",
+      "services": "Protection of civilians (100K-160K people), medical care (MSF), security patrols (UNMISS), development projects (IOM). Largest IDP camp in South Sudan. Extreme heat/flooding conditions",
+      "hours": "24/7",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 73,
+    "fields": {
+      "name": "Malakal POC Site, Upper Nile State",
+      "resource_type": "shelter",
+      "location": "POINT(31.6500 9.5500)",
+      "contact": "",
+      "services": "Emergency shelter, medical care, water distribution, food, protection services. UNMISS/UNHCR/WFP/MSF managed. ~30K+ displaced persons",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+
+  {
+    "model": "incidents.resource",
+    "pk": 74,
+    "fields": {
+      "name": "Yangon General Hospital",
+      "resource_type": "hospital",
+      "location": "POINT(96.1561 16.8661)",
+      "contact": "+95-1-256-131",
+      "services": "Emergency care, surgery, internal medicine, trauma, ICU. Largest public hospital in Myanmar (~2000 beds)",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 75,
+    "fields": {
+      "name": "Mandalay General Hospital",
+      "resource_type": "hospital",
+      "location": "POINT(96.0891 21.9588)",
+      "contact": "+95-2-39088",
+      "services": "Emergency, surgery, internal medicine, pediatrics, obstetrics. Major referral hospital for Upper Myanmar",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 76,
+    "fields": {
+      "name": "ICRC Myanmar Delegation, Yangon",
+      "resource_type": "aid_org",
+      "location": "POINT(96.1700 16.8000)",
+      "contact": "+95-1-384-842",
+      "services": "Detention visits, family tracing, surgical support, water infrastructure, livelihood programs. Active across Myanmar conflict zones",
+      "hours": "08:00-17:00 weekdays, emergency 24/7",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 77,
+    "fields": {
+      "name": "Myanmar Red Cross Society, Yangon",
+      "resource_type": "aid_org",
+      "location": "POINT(96.1550 16.8600)",
+      "contact": "+95-1-383-680",
+      "services": "Emergency response, ambulance, first aid, disaster relief, community health. ICRC primary partner in Myanmar",
+      "hours": "24/7 emergency services",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 78,
+    "fields": {
+      "name": "MSF Rakhine State Clinics",
+      "resource_type": "hospital",
+      "location": "POINT(92.9000 20.1500)",
+      "contact": "",
+      "services": "Emergency medical care, maternal health, Rohingya health services, mobile clinics. Critical healthcare provider in Rakhine",
+      "hours": "Varies by location",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+
+  {
+    "model": "incidents.resource",
+    "pk": 79,
+    "fields": {
+      "name": "Hospital de l'Universite d'Etat d'Haiti (HUEH)",
+      "resource_type": "hospital",
+      "location": "POINT(-72.3388 18.5425)",
+      "contact": "",
+      "services": "Emergency, surgery, internal medicine, pediatrics, obstetrics. Main public teaching hospital in Port-au-Prince (~800 beds)",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 80,
+    "fields": {
+      "name": "MSF Tabarre Trauma Center, Port-au-Prince",
+      "resource_type": "hospital",
+      "location": "POINT(-72.2800 18.5600)",
+      "contact": "",
+      "services": "Trauma surgery, gunshot wound treatment, burns care, emergency stabilization. Primary trauma center for gang violence casualties",
+      "hours": "24/7",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 81,
+    "fields": {
+      "name": "Hopital Universitaire Justinien, Cap-Haitien",
+      "resource_type": "hospital",
+      "location": "POINT(-72.2000 19.7600)",
+      "contact": "",
+      "services": "Emergency, surgery, internal medicine, pediatrics. Main referral hospital for northern Haiti",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 82,
+    "fields": {
+      "name": "ICRC Haiti, Port-au-Prince",
+      "resource_type": "aid_org",
+      "location": "POINT(-72.3300 18.5400)",
+      "contact": "+509-2813-0505",
+      "services": "Surgical support for weapon-wounded, water and sanitation, family tracing, detention visits. Active in gang-affected areas",
+      "hours": "08:00-17:00 weekdays, emergency 24/7",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 83,
+    "fields": {
+      "name": "Haitian Red Cross (Croix-Rouge Haitienne)",
+      "resource_type": "aid_org",
+      "location": "POINT(-72.3350 18.5380)",
+      "contact": "+509-2812-3459",
+      "services": "Emergency response, first aid, disaster relief, community health, humanitarian aid distribution",
+      "hours": "24/7 emergency services",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+
+  {
+    "model": "incidents.resource",
+    "pk": 84,
+    "fields": {
+      "name": "Tripoli Central Hospital",
+      "resource_type": "hospital",
+      "location": "POINT(13.1800 32.9000)",
+      "contact": "",
+      "services": "Emergency, surgery, internal medicine, ICU, specialized care. Main referral hospital in Tripoli",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 85,
+    "fields": {
+      "name": "Benghazi Medical Centre",
+      "resource_type": "hospital",
+      "location": "POINT(20.0700 32.1000)",
+      "contact": "",
+      "services": "Emergency, surgery, internal medicine, trauma. Major hospital in eastern Libya (~1200 beds)",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 86,
+    "fields": {
+      "name": "ICRC Libya, Tripoli",
+      "resource_type": "aid_org",
+      "location": "POINT(13.1800 32.9000)",
+      "contact": "+218-21-340-0547",
+      "services": "Detention visits, family tracing, medical support, migration assistance, water infrastructure",
+      "hours": "08:00-17:00 weekdays",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 87,
+    "fields": {
+      "name": "Libyan Red Crescent Society",
+      "resource_type": "aid_org",
+      "location": "POINT(13.1850 32.9050)",
+      "contact": "+218-21-340-0582",
+      "services": "Emergency response, ambulance, first aid, humanitarian aid, disaster relief. ICRC partner in Libya",
+      "hours": "24/7 emergency services",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+
+  {
+    "model": "incidents.resource",
+    "pk": 88,
+    "fields": {
+      "name": "Gabriel Toure Hospital, Bamako",
+      "resource_type": "hospital",
+      "location": "POINT(-8.0029 12.6500)",
+      "contact": "",
+      "services": "Emergency, surgery, pediatrics, trauma, ICU. Major public hospital in Mali's capital",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 89,
+    "fields": {
+      "name": "CHU Yalgado Ouedraogo, Ouagadougou",
+      "resource_type": "hospital",
+      "location": "POINT(-1.5197 12.3714)",
+      "contact": "",
+      "services": "Emergency, surgery, internal medicine, pediatrics. Largest public hospital in Burkina Faso",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 90,
+    "fields": {
+      "name": "Hopital National de Niamey",
+      "resource_type": "hospital",
+      "location": "POINT(2.1098 13.5137)",
+      "contact": "",
+      "services": "Emergency, surgery, internal medicine, pediatrics, obstetrics. Main national referral hospital in Niger",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 91,
+    "fields": {
+      "name": "ICRC Mali, Bamako",
+      "resource_type": "aid_org",
+      "location": "POINT(-8.0000 12.6400)",
+      "contact": "+223-20-21-64-48",
+      "services": "Medical support, water infrastructure, family tracing, protection, livelihood programs. Active across northern and central Mali",
+      "hours": "08:00-17:00 weekdays",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 92,
+    "fields": {
+      "name": "ICRC Burkina Faso, Ouagadougou",
+      "resource_type": "aid_org",
+      "location": "POINT(-1.5200 12.3700)",
+      "contact": "+226-25-30-62-78",
+      "services": "Healthcare support, water access, family reunification, protection services, food assistance in blockaded areas",
+      "hours": "08:00-17:00 weekdays",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 93,
+    "fields": {
+      "name": "ICRC Niger, Niamey",
+      "resource_type": "aid_org",
+      "location": "POINT(2.1100 13.5100)",
+      "contact": "+227-20-72-24-44",
+      "services": "Medical support, water infrastructure, family tracing, protection, emergency food assistance",
+      "hours": "08:00-17:00 weekdays",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+
+  {
+    "model": "incidents.resource",
+    "pk": 94,
+    "fields": {
+      "name": "Complexe Pediatrique de Bangui",
+      "resource_type": "hospital",
+      "location": "POINT(18.5580 4.3660)",
+      "contact": "",
+      "services": "Pediatric emergency care, surgery, nutrition treatment, maternal health. Main pediatric hospital in CAR",
+      "hours": "24/7",
+      "verified": false,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 95,
+    "fields": {
+      "name": "ICRC Central African Republic, Bangui",
+      "resource_type": "aid_org",
+      "location": "POINT(18.5600 4.3600)",
+      "contact": "+236-21-61-78-96",
+      "services": "Surgical support, family tracing, water infrastructure, protection services. Active across CAR conflict areas",
+      "hours": "08:00-17:00 weekdays, emergency 24/7",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 96,
+    "fields": {
+      "name": "MSF Bangui Hospital Program",
+      "resource_type": "hospital",
+      "location": "POINT(18.5550 4.3650)",
+      "contact": "",
+      "services": "Emergency surgical care, pediatrics, nutrition, mobile clinics. MSF operates in multiple locations across CAR",
+      "hours": "24/7 emergency services",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  },
+  {
+    "model": "incidents.resource",
+    "pk": 97,
+    "fields": {
+      "name": "Central African Red Cross, Bangui",
+      "resource_type": "aid_org",
+      "location": "POINT(18.5570 4.3640)",
+      "contact": "+236-75-50-60-55",
+      "services": "Emergency response, first aid, community health volunteers, disaster relief. ICRC primary partner in CAR",
+      "hours": "24/7 emergency services",
+      "verified": true,
+      "created_at": "2026-04-03T00:00:00Z"
+    }
+  }
+]
