@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@900&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #0a0c10;
+    color: #f0f0f0;
+}
+
+code {
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 900;
+}
+
+@layer base {
+    :root {
+        --bg-base: #0a0c10;
+        --surface: #111318;
+        --surface-2: #181c24;
+        --border: rgba(255,255,255,0.08);
+        --border-strong: rgba(255,255,255,0.16);
+        --text-primary: #f0f0f0;
+        --text-dim: #9ca3af;
+        --text-muted: #6b7280;
+        --accent-active: #00e5ff;
+        --critical: #ff2d2d;
+        --high: #ffb800;
+        --medium: #3b82f6;
+        --low: #00d26a;
+        
+        --background: 222 47% 4%;
+        --foreground: 0 0% 94%;
+        --card: 222 32% 7%;
+        --card-foreground: 0 0% 94%;
+        --popover: 222 32% 7%;
+        --popover-foreground: 0 0% 94%;
+        --primary: 187 100% 50%;
+        --primary-foreground: 0 0% 0%;
+        --secondary: 222 20% 14%;
+        --secondary-foreground: 0 0% 94%;
+        --muted: 222 20% 14%;
+        --muted-foreground: 217 10% 64%;
+        --accent: 187 100% 50%;
+        --accent-foreground: 0 0% 0%;
+        --destructive: 0 100% 59%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 222 20% 14%;
+        --input: 222 20% 14%;
+        --ring: 187 100% 50%;
+        --radius: 0.375rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-[rgba(255,255,255,0.08)];
+    }
+    body {
+        @apply bg-[#0a0c10] text-[#f0f0f0];
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        padding-left: inherit;
+        padding-right: inherit;
+        padding-top: inherit;
+        padding-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+        border-left-width: inherit;
+        border-right-width: inherit;
+        border-top-width: inherit;
+        border-bottom-width: inherit;
+        border-left-style: inherit;
+        border-right-style: inherit;
+        border-top-style: inherit;
+        border-bottom-style: inherit;
+        border-left-color: inherit;
+        border-right-color: inherit;
+        border-top-color: inherit;
+        border-bottom-color: inherit;
+    }
+}
+
+/* Critical marker pulse animation */
+@keyframes critical-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.7;
+    }
+}
+
+/* AI thinking animation */
+@keyframes thinking-pulse {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Alert flash animation */
+@keyframes alert-flash {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-critical-pulse,
+    .animate-thinking,
+    .animate-alert-flash {
+        animation: none !important;
+    }
+}
+
+.animate-critical-pulse {
+    animation: critical-pulse 2s ease-in-out infinite;
+}
+
+.animate-thinking {
+    animation: thinking-pulse 0.8s ease-in-out infinite;
+}
+
+.animate-alert-flash {
+    animation: alert-flash 0.4s ease-in-out 3;
+}
+
+/* Leaflet map styles */
+.leaflet-container {
+    background: #0a0c10 !important;
+    font-family: 'IBM Plex Mono', monospace !important;
+}
+
+.leaflet-control-zoom {
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    border-radius: 4px !important;
+}
+
+.leaflet-control-zoom a {
+    background: #111318 !important;
+    color: #f0f0f0 !important;
+    border-color: rgba(255,255,255,0.08) !important;
+}
+
+.leaflet-control-zoom a:hover {
+    background: #181c24 !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0c10;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.16);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.24);
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        padding-left: inherit;
+        padding-right: inherit;
+        padding-top: inherit;
+        padding-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+        border-left-width: inherit;
+        border-right-width: inherit;
+        border-top-width: inherit;
+        border-bottom-width: inherit;
+        border-left-style: inherit;
+        border-right-style: inherit;
+        border-top-style: inherit;
+        border-bottom-style: inherit;
+        border-left-color: inherit;
+        border-right-color: inherit;
+        border-top-color: inherit;
+        border-bottom-color: inherit;
+    }
+}
