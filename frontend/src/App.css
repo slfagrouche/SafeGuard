@@ -1,0 +1,144 @@
+.App {
+  min-height: 100vh;
+  background-color: #0a0c10;
+}
+
+/* Marker styles */
+.incident-marker {
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.incident-marker.critical {
+  background-color: #ff2d2d;
+  box-shadow: 0 0 12px 4px rgba(255, 45, 45, 0.5);
+}
+
+.incident-marker.high {
+  background-color: #ffb800;
+  box-shadow: 0 0 8px 2px rgba(255, 184, 0, 0.3);
+}
+
+.incident-marker.medium {
+  background-color: #3b82f6;
+}
+
+.incident-marker.low {
+  background-color: #00d26a;
+}
+
+/* Custom popup styles */
+.leaflet-popup-content-wrapper {
+  background: #111318 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 6px !important;
+  padding: 0 !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  font-family: 'IBM Plex Mono', monospace !important;
+  color: #f0f0f0 !important;
+}
+
+.leaflet-popup-tip {
+  background: #111318 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.leaflet-popup-close-button {
+  color: #6b7280 !important;
+}
+
+.leaflet-popup-close-button:hover {
+  color: #f0f0f0 !important;
+}
+
+/* Attribution */
+.leaflet-control-attribution {
+  background: rgba(17, 19, 24, 0.8) !important;
+  color: #6b7280 !important;
+  font-size: 10px !important;
+}
+
+.leaflet-control-attribution a {
+  color: #9ca3af !important;
+}
+
+/* Cluster styles */
+.marker-cluster {
+  background: rgba(17, 19, 24, 0.9) !important;
+  border: 2px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: 50% !important;
+}
+
+.marker-cluster div {
+  background: transparent !important;
+  color: #f0f0f0 !important;
+  font-family: 'IBM Plex Mono', monospace !important;
+  font-weight: 500;
+}
+
+.marker-cluster.critical-cluster {
+  border-color: #ff2d2d !important;
+  box-shadow: 0 0 12px rgba(255, 45, 45, 0.5) !important;
+}
+
+/* Sheet animations */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.sheet-enter {
+  animation: slideUp 240ms ease-out;
+}
+
+.sheet-exit {
+  animation: slideDown 240ms ease-out;
+}
+
+/* Panel transitions */
+.panel-expand {
+  transition: height 180ms ease-out;
+}
+
+/* Skeleton loading */
+.skeleton {
+  background: linear-gradient(90deg, #181c24 25%, #1f232b 50%, #181c24 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
