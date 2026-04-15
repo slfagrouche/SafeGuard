@@ -1,8 +1,11 @@
 # SafeGuard
-
 Real-time crisis monitoring and alert platform. Track incidents, coordinate emergency response, and get AI-powered safety guidance across conflict zones and humanitarian crises worldwide.
 
 **Live:** [safeguard-neon.vercel.app](https://safeguard-neon.vercel.app/)
+
+<img width="1728" height="997" alt="image" src="https://github.com/user-attachments/assets/37172509-5d70-46a1-add2-8c0a27e71370" />
+<img width="1720" height="1000" alt="image" src="https://github.com/user-attachments/assets/6437b2dd-c9b0-48af-87b7-d268cd587515" />
+<img width="1607" height="994" alt="image" src="https://github.com/user-attachments/assets/3eb42054-8fe2-4254-934a-781dc1cb2a38" />
 
 ## What it does
 
